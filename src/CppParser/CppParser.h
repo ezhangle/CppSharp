@@ -113,6 +113,7 @@ public:
 
     static ParserResult* ParseHeader(CppParserOptions* Opts);
     static ParserResult* ParseLibrary(CppParserOptions* Opts);
+    static ParserResult* Build(CppParserOptions* Opts, const std::string& File);
 };
 
 } }

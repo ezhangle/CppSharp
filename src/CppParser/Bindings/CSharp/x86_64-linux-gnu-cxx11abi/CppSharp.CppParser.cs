@@ -47782,6 +47782,11 @@ namespace CppSharp
                 [DllImport("CppSharp.CppParser", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                     EntryPoint="_ZN8CppSharp9CppParser11ClangParser12ParseLibraryEPNS0_16CppParserOptionsE")]
                 internal static extern global::System.IntPtr ParseLibrary(global::System.IntPtr Opts);
+
+                [SuppressUnmanagedCodeSecurity]
+                [DllImport("CppSharp.CppParser", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                    EntryPoint="_ZN8CppSharp9CppParser11ClangParser5BuildEPNS0_16CppParserOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE")]
+                internal static extern global::System.IntPtr Build(global::System.IntPtr Opts, global::System.IntPtr File);
             }
 
             public global::System.IntPtr __Instance { get; protected set; }
@@ -47868,6 +47873,22 @@ namespace CppSharp
             {
                 var __arg0 = ReferenceEquals(Opts, null) ? global::System.IntPtr.Zero : Opts.__Instance;
                 var __ret = __Internal.ParseLibrary(__arg0);
+                global::CppSharp.Parser.ParserResult __result0;
+                if (__ret == IntPtr.Zero) __result0 = null;
+                else if (global::CppSharp.Parser.ParserResult.NativeToManagedMap.ContainsKey(__ret))
+                    __result0 = (global::CppSharp.Parser.ParserResult) global::CppSharp.Parser.ParserResult.NativeToManagedMap[__ret];
+                else __result0 = global::CppSharp.Parser.ParserResult.__CreateInstance(__ret);
+                return __result0;
+            }
+
+            public static global::CppSharp.Parser.ParserResult Build(global::CppSharp.Parser.CppParserOptions Opts, string File)
+            {
+                var __arg0 = ReferenceEquals(Opts, null) ? global::System.IntPtr.Zero : Opts.__Instance;
+                var __basicString1 = new global::Std.BasicString<sbyte, global::Std.CharTraits<sbyte>, global::Std.Allocator<sbyte>>();
+                global::Std.BasicStringExtensions.Assign(__basicString1, File);
+                var __arg1 = __basicString1.__Instance;
+                var __ret = __Internal.Build(__arg0, __arg1);
+                __basicString1.Dispose();
                 global::CppSharp.Parser.ParserResult __result0;
                 if (__ret == IntPtr.Zero) __result0 = null;
                 else if (global::CppSharp.Parser.ParserResult.NativeToManagedMap.ContainsKey(__ret))

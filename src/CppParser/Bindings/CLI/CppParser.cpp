@@ -844,6 +844,15 @@ CppSharp::Parser::ParserResult^ CppSharp::Parser::ClangParser::ParseLibrary(CppS
     return (__ret == nullptr) ? nullptr : gcnew ::CppSharp::Parser::ParserResult((::CppSharp::CppParser::ParserResult*)__ret);
 }
 
+CppSharp::Parser::ParserResult^ CppSharp::Parser::ClangParser::Build(CppSharp::Parser::CppParserOptions^ Opts, System::String^ File)
+{
+    auto __arg0 = (::CppSharp::CppParser::CppParserOptions*)Opts->NativePtr;
+    auto __arg1 = clix::marshalString<clix::E_UTF8>(File);
+    auto __ret = ::CppSharp::CppParser::ClangParser::Build(__arg0, __arg1);
+    if (__ret == nullptr) return nullptr;
+    return (__ret == nullptr) ? nullptr : gcnew ::CppSharp::Parser::ParserResult((::CppSharp::CppParser::ParserResult*)__ret);
+}
+
 CppSharp::Parser::ClangParser::ClangParser()
 {
     __ownsNativeInstance = true;
